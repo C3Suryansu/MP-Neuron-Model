@@ -106,13 +106,13 @@ for b in range(X_binarised_train.shape[1] + 1):
 #testing the trained model on training data, i.e., using the found out b=28 value on the new dataset
 from sklearn.metrics import accuracy_score
 
-b = 28
+threshold_value = 28
 
 Y_pred_test = []
 
 for x in X_binarised_test:
-    y_pred = (np.sum(x) >= b)
+    y_pred = (np.sum(x) >= threshold_value)
     Y_pred_test.append(y_pred)
     
 accuracy = accuracy_score(Y_pred_test, Y_test)
-print(b, accuracy)
+print(threshold_value, accuracy)
